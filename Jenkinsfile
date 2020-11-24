@@ -48,11 +48,11 @@ timestamps {
 
         stage("Teardown") {
             try {
+                echo "This is teardown stage."
                 for (def i = 0; i < 10; i++) {
                     def branchname = "branch-${i}"
                     logparser.archiveLogsWithBranchInfo("branch-${i}.log", [ filter: [branchname], hidePipeline: false ])
                 }
-                echo "This is teardown stage."
                 archiveArtifacts artifacts: "archive/*"
             } catch(e) {
                 exceptionHandler(e,"Failed in Teardown Stage")

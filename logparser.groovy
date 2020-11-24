@@ -186,12 +186,11 @@ String getLogsWithBranchInfo(java.util.LinkedHashMap options = [:], build = curr
 
     if (!cachedTree) {
         cachedTree = _getNodeTree(build)
+        if (this.verbose) {
+            print "tree=${cachedTree}"
+        }
     }
     def tree = cachedTree
-
-    if (this.verbose) {
-        print "tree=${tree}"
-    }
 
     def keep = [:]
 
