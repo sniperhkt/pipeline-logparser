@@ -53,9 +53,9 @@ timestamps {
                     def branchname = "branch-${i}"
                     logparser.archiveLogsWithBranchInfo("branch-${i}.log", [ filter: [branchname], hidePipeline: false ])
                 }
+                logparser.cachedTree = null
                 archiveArtifacts artifacts: "archive/*"
                 echo "done"
-                logparser.cachedTree = null
             } catch(e) {
                 exceptionHandler(e,"Failed in Teardown Stage")
             }
