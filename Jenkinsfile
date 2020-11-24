@@ -291,22 +291,22 @@ def runStagesAndBranches(expectedLogMap, expectedLogMapWithStages) {
 // =======================================
 
 def checkLogs(log1, editedLog1, name1, log2, editedLog2, name2) {
-    def tocmp1 = editedLog1 == null ? log1 : editedLog1
-    def tocmp2 = editedLog2 == null ? log2 : editedLog2
-    if (tocmp1 != tocmp2) {
-        // TODO: print side by side differences
-        print "${name1} = '''\\\n${log1}'''"
-        if (editedLog1 != null && log1 != editedLog1) {
-            print "${name1} (edited) ='''\\\n${editedLog1}'''"
-        }
-        print "${name2} = '''\\\n${log2}'''"
-        if (editedLog2 != null && log2 != editedLog2) {
-            print "${name2} (edited) ='''\\\n${editedLog2}'''"
-        }
-        error "${name1} and ${name2} differ"
-    } else {
-        print "${name1} and ${name2} are identical"
-    }
+    // def tocmp1 = editedLog1 == null ? log1 : editedLog1
+    // def tocmp2 = editedLog2 == null ? log2 : editedLog2
+    // if (tocmp1 != tocmp2) {
+    //     // TODO: print side by side differences
+    //     print "${name1} = '''\\\n${log1}'''"
+    //     if (editedLog1 != null && log1 != editedLog1) {
+    //         print "${name1} (edited) ='''\\\n${editedLog1}'''"
+    //     }
+    //     print "${name2} = '''\\\n${log2}'''"
+    //     if (editedLog2 != null && log2 != editedLog2) {
+    //         print "${name2} (edited) ='''\\\n${editedLog2}'''"
+    //     }
+    //     error "${name1} and ${name2} differ"
+    // } else {
+    //     print "${name1} and ${name2} are identical"
+    // }
 }
 
 def checkBranchLogs(logs, name, expected) {
