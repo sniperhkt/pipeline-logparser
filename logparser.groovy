@@ -182,7 +182,7 @@ String getLogsWithBranchInfo(java.util.LinkedHashMap options = [:], build = curr
     }
     */
 
-    def tree = _getNodeTree(build,null,options.filter)
+    def tree = _getNodeTree(build)
 
     if (this.verbose) {
         print "tree=${tree}"
