@@ -9,7 +9,7 @@
 @groovy.transform.Field
 def verbose = false
 
-def tree = null
+tree = null
 
 @NonCPS
 def setVerbose(v) {
