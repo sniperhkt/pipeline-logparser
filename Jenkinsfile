@@ -25,7 +25,8 @@ timestamps {
         stage("Parallel Steps") {
             try {
                 def parallelSteps = [:]
-                for (def i = 0; i < 10; i++) {
+                for (def idx = 0; idx < 10; idx++) {
+                    def i = idx
                     def branchname = "branch-${i}"
                     parallelSteps[branchname] = {
                         node("master") {
