@@ -22,7 +22,7 @@ def setVerbose(v) {
 
 @NonCPS
 java.util.ArrayList _getNodeTree(build = currentBuild, _node = null, _branches=[], _stages=[]) {
-    def tree = []
+    tree = []
 
     def flowGraph = build.rawBuild.allActions.findAll { it.class == org.jenkinsci.plugins.workflow.job.views.FlowGraphAction }
     assert flowGraph.size() == 1
@@ -63,7 +63,6 @@ java.util.ArrayList _getNodeTree(build = currentBuild, _node = null, _branches=[
     tree += [ [ id: node.id, node: node, name: name, stage: stage, parents: node.allEnclosingIds, parent: node.enclosingId, children: children.collect{ it.id }, branches: _branches, stages: _stages ] ]
 
     children.each{ tree += _getNodeTree(build, it, branches, stages) }
-    return tree
 }
 
 //*******************************
@@ -185,7 +184,7 @@ String getLogsWithBranchInfo(java.util.LinkedHashMap options = [:], build = curr
     */
 
     if (!tree) {
-        tree = _getNodeTree(build)
+        _getNodeTree(build)
         if (this.verbose) {
             print "tree=${tree}"
         }
