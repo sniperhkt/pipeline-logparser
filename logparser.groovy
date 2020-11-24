@@ -9,6 +9,8 @@
 @groovy.transform.Field
 def verbose = false
 
+cachedTree = null
+
 @NonCPS
 def setVerbose(v) {
     this.verbose = v
@@ -182,7 +184,10 @@ String getLogsWithBranchInfo(java.util.LinkedHashMap options = [:], build = curr
     }
     */
 
-    def tree = _getNodeTree(build)
+    if (!cachedTree) {
+        cachedTree = _getNodeTree(build)
+    }
+    def tree = cachedTree
 
     if (this.verbose) {
         print "tree=${tree}"
