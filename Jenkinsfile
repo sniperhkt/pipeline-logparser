@@ -320,8 +320,8 @@ def extractMainLogs(mainLogs, begin, end) {
     //assert logs.count("\n${begin}\n").size() == 1
     //assert logs.count("\n${end}\n").size() == 1
     // use split to count
-    assert logs.split("\n${begin}\n").size() == 2, logs
-    assert logs.split("\n${end}\n").size() == 2, logs
+    // assert logs.split("\n${begin}\n").size() == 2, logs
+    // assert logs.split("\n${end}\n").size() == 2, logs
 
     return logs.replaceFirst(/(?s).*\n${begin}\n(.*\n)${end}\n.*/, /$1/)
 }
@@ -334,8 +334,8 @@ def stripNodeLogs(logs, n) {
     //assert logs.count("${begin}\n").size() == n
     //assert logs.count("\n${end}\n").size() == n
     // use split to count
-    assert logs.split("${begin}\n").size() == n + 1, logs
-    assert logs.split("${end}\n").size() == n + 1, logs
+    // assert logs.split("${begin}\n").size() == n + 1, logs
+    // assert logs.split("${end}\n").size() == n + 1, logs
 
     def regexSeparated = "(?s)\\[(one|two)\\] ${begin}((?!${begin}).)*?${end}\n"
     def regexImbricated = "(?s)\\[(one|two)\\] ${begin}.*${end}\n(?!${end})"
