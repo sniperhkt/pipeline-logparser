@@ -38,7 +38,7 @@ timestamps {
                     }
                 }
                 parallel parallelSteps
-            } catch {
+            } catch(e) {
                 exceptionHandler(e,"Failed in Parallel Steps")
             }
         }
