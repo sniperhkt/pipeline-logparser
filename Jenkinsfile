@@ -2,7 +2,7 @@
 
 
 // import logparser library
-logparser = load "${pwd()}/logparser.groovy"
+logparser = null
 
 
 properties([
@@ -728,6 +728,7 @@ def testLogparser() {
 // ===============
 timestamps {
     node("master") {
+        logparser = load "${pwd()}/logparser.groovy"
         testLogparser()
     }
 }
