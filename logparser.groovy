@@ -9,6 +9,8 @@
 @groovy.transform.Field
 def verbose = false
 
+def tree = null
+
 @NonCPS
 def setVerbose(v) {
     this.verbose = v
@@ -182,7 +184,9 @@ String getLogsWithBranchInfo(java.util.LinkedHashMap options = [:], build = curr
     }
     */
 
-    def tree = _getNodeTree(build)
+    if (!tree) {
+        tree = _getNodeTree(build)
+    }
 
     if (this.verbose) {
         print "tree=${tree}"
