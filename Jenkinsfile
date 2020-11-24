@@ -29,7 +29,7 @@ timestamps {
                     def branchname = "branch-${i}"
                     parallelSteps[branchname] = {
                         try {
-                            for (def j = 0; j < 1000000; j++) {
+                            for (def j = 0; j < 10000; j++) {
                                 echo "In branch-${i}, count ${j}\n"
                             }
                         } catch(e) {
