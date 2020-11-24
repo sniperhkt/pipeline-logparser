@@ -28,12 +28,14 @@ timestamps {
                 for (def i = 0; i < 10; i++) {
                     def branchname = "branch-${i}"
                     parallelSteps[branchname] = {
-                        try {
-                            for (def j = 0; j < 10000; j++) {
-                                echo "In branch-${i}, count ${j}\n"
+                        node("master") {
+                            try {
+                                for (def j = 0; j < 10000; j++) {
+                                    echo "In branch-${i}, count ${j}\n"
+                                }
+                            } catch(e) {
+                                exceptionHandler(e, "Failed in branch-${i}")
                             }
-                        } catch(e) {
-                            exceptionHandler(e, "Failed in branch-${i}")
                         }
                     }
                 }
