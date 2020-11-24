@@ -281,8 +281,7 @@ String getLogsWithBranchInfo(java.util.LinkedHashMap options = [:], build = curr
 // cf https://github.com/gdemengin/pipeline-whitelist
 @NonCPS
 void archiveArtifactBuffer(String name, String buffer) {
-    def jobRoot = currentBuild.rawBuild.getRootDir()
-    def file = new File("${jobRoot}/archive/${name}")
+    def file = new File("${pwd()}/archive/${name}")
 
     if (this.verbose) {
         print "logparser: archiving ${file.path}"
