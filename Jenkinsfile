@@ -728,6 +728,8 @@ def testLogparser() {
 // ===============
 timestamps {
     node("master") {
+        deleteDir()
+        checkout scm
         logparser = load "${pwd()}/logparser.groovy"
         testLogparser()
     }
