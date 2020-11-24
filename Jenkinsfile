@@ -54,6 +54,7 @@ timestamps {
                     logparser.archiveLogsWithBranchInfo("branch-${i}.log", [ filter: [branchname], hidePipeline: false ])
                 }
                 archiveArtifacts artifacts: "archive/*"
+                echo "done"
             } catch(e) {
                 exceptionHandler(e,"Failed in Teardown Stage")
             }
