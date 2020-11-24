@@ -202,11 +202,11 @@ def runBranchesWithManyLines(nblines, expectedLogMap) {
     parallel one: {
         print 'STRIP_NODE_LOG_START'
         node(LABEL_LINUX) {
-            timeout(5) { // wait for other branch ... but no more than 5 minutes to avoid deadlock
-                print 'STRIP_NODE_LOG_STOP'
-                start += 1
-                while (start < 2) {}
-            }
+            // timeout(5) { // wait for other branch ... but no more than 5 minutes to avoid deadlock
+            //     print 'STRIP_NODE_LOG_STOP'
+            //     start += 1
+            //     while (start < 2) {}
+            // }
             sh script
             if (expectedLogMap != null) {
                 expectedLogMap.'one' += readFile('output.txt')
@@ -215,11 +215,11 @@ def runBranchesWithManyLines(nblines, expectedLogMap) {
     }, two: {
         print 'STRIP_NODE_LOG_START'
         node(LABEL_LINUX) {
-            timeout(5) { // wait for other branch ... but no more than 5 minutes to avoid deadlock
-                print 'STRIP_NODE_LOG_STOP'
-                start += 1
-                while (start < 2) {}
-            }
+            // timeout(5) { // wait for other branch ... but no more than 5 minutes to avoid deadlock
+            //     print 'STRIP_NODE_LOG_STOP'
+            //     start += 1
+            //     while (start < 2) {}
+            // }
             sh script
             if (expectedLogMap != null) {
                 expectedLogMap.'two' += readFile('output.txt')
