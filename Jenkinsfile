@@ -16,7 +16,7 @@ properties([
 // = constants   =
 // ===============
 
-LABEL_LINUX='linux'
+LABEL_LINUX='master'
 
 // set to to true to run extra long tests
 // (multiple hours + may fail if not enough heap)
@@ -701,10 +701,6 @@ def testLogparser() {
     runStagesAndBranches(expectedLogMap, expectedLogMapWithStages)
 
     print end
-
-    // add VT100 markers
-    node(LABEL_LINUX) {
-    }
 
     parseLogs(expectedLogMap, expectedLogMapWithStages, begin, end)
     printUrls(true)
