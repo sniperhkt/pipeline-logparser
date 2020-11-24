@@ -732,5 +732,6 @@ timestamps {
         checkout scm
         logparser = load "${pwd()}/logparser.groovy"
         testLogparser()
+        archiveArtifacts artifacts: "/archive/*.txt"
     }
 }
