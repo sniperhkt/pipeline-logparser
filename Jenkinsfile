@@ -2,7 +2,7 @@
 
 
 // import logparser library
-@Library('pipeline-logparser@2.0') _
+logparser = load "${pwd()}/logparser.groovy"
 
 
 properties([
@@ -587,10 +587,6 @@ def printUrls(check) {
     def bou
     def psu
     timestamps {
-        print 'before getBlueOceanUrls()'
-        bou = logparser.getBlueOceanUrls()
-        print 'after getBlueOceanUrls()'
-
         print 'before getPipelineStepsUrls()'
         psu = logparser.getPipelineStepsUrls()
         print 'after getPipelineStepsUrls()'
@@ -659,9 +655,6 @@ def printUrls(check) {
     }
 
     def str = ''
-    str += '\n********************\n'
-    str += '* Blue Ocean links *\n'
-    str += '********************\n'
     bou.each {
         def offset = ''
         for(def i = 0; i < it.parents.size(); i++) { offset += '    ' }
