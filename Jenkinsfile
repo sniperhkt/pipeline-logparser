@@ -726,5 +726,8 @@ def testLogparser() {
 // ===============
 // = run tests   =
 // ===============
-
-testLogparser()
+timestamps {
+    node("master") {
+        testLogparser()
+    }
+}
