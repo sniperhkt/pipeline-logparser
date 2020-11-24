@@ -53,7 +53,7 @@ timestamps {
                     def branchname = "branch-${i}"
                     logparser.archiveLogsWithBranchInfo("branch-${i}.log", [ filter: [branchname], hidePipeline: false ])
                 }
-                // archiveArtifacts artifacts: "archive/*"
+                archiveArtifacts artifacts: "archive/*"
                 echo "done"
                 logparser.cachedTree = null
             } catch(e) {
