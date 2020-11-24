@@ -30,7 +30,7 @@ timestamps {
                     parallelSteps[branchname] = {
                         node("master") {
                             try {
-                                for (def j = 0; j < 10000; j++) {
+                                for (def j = 0; j < 100; j++) {
                                     echo "In branch-${i}, count ${j}\n"
                                 }
                             } catch(e) {
