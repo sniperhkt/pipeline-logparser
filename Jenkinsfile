@@ -3,6 +3,7 @@
 
 // import logparser library
 logparser = null
+exceptions = ""
 
 // ===============
 // = constants   =
@@ -68,7 +69,6 @@ String exceptionHandler(e, msg = "") {
     def w = new StringWriter()
     e.printStackTrace(new PrintWriter(w))
     currentBuild.result = 'UNSTABLE'
-    seenException = true
     def eMsg = "${msg}\n${w.toString()}"
     println eMsg
     exceptions += "${eMsg}\n"
