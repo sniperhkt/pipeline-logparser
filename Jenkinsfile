@@ -34,6 +34,7 @@ timestamps {
                                 for (def j = 0; j < 100; j++) {
                                     echo "In branch-${i}, count ${j}\n"
                                 }
+                                error "exception in branch-${i}"
                             } catch(e) {
                                 exceptionHandler(e, "Failed in branch-${i}")
                             }
